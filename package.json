@@ -10,9 +10,15 @@
   },
   "dependencies": {
     "better-auth": "^1.4.7",
+    "dotenv": "^17.2.3",
     "next": "16.1.0",
     "react": "19.2.3",
-    "react-dom": "19.2.3"
+    "react-dom": "19.2.3",
+    "@prisma/adapter-pg": "^7.0.1",
+    "@prisma/client": "^7.0.1",
+    "@prisma/extension-accelerate": "^3.0.1",
+    "@prisma/language-server": "^7.0.0",
+    "prisma": "^7.0.1"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4",
