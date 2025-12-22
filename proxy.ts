@@ -9,6 +9,7 @@ export async function proxy(request: NextRequest) {
   if (!cookies) {
     return NextResponse.redirect(new URL("/signup", request.url));
   }
+
   return NextResponse.next();
 }
 

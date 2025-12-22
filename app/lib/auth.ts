@@ -3,6 +3,7 @@ import { prismaAdapter } from "better-auth/adapters/prisma";
 import { username } from "better-auth/plugins/username";
 // If your Prisma file is located elsewhere, you can change the path
 import prisma from "@/app/lib/prisma";
+import { nextCookies } from "better-auth/next-js";
 // import { PrismaPg } from "@prisma/adapter-pg";
 
 // const adapter = new PrismaPg({
@@ -19,11 +20,14 @@ export const auth = betterAuth({
     enabled: true,
     requireEmailVerification: false,
   },
-  plugins: [username()],
-  // emailVerification: {
-  //   sendVerificationEmail: async ({ user, url, token }, request) => {
-  //     log(`Click the link to verify your email: ${url}`);
-  //   },
-  //   sendOnSignUp: true,
-  // },
+  plugins: [username(), nextCookies()],
+  user: {
+    additionalFields: {
+      active: {
+        type: "boolean",
+        default: false,
+        input: false,
+      },
+    },
+  },
 });

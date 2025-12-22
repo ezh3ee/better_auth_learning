@@ -23,6 +23,7 @@ model User {
   updatedAt     DateTime  @updatedAt
   sessions      Session[]
   accounts      Account[]
+  active        Boolean   @default(false)
 
   username        String?
   displayUsername String?
