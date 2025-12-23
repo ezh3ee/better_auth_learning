@@ -1,12 +1,17 @@
+import { auth } from "@/app/lib/auth";
 import { Button } from "@/components/ui/button";
+import { log } from "console";
 import { headers } from "next/headers";
 import { redirect } from "next/navigation";
-import { auth } from "../lib/auth";
 
 export default async function Home() {
+  const session = await auth.api.getSession({
+    headers: await headers(),
+  });
+  log("session", session);
   return (
     <div>
-      Protected route
+      <h1>Hello, {session?.user.displayUsername}</h1>
       <Button>Click me</Button>
       <Button
         onClick={async () => {

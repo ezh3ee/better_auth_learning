@@ -11,7 +11,7 @@ export default async function ProtectedLayout({
     headers: await headers(),
   });
 
-  if (!session) redirect("/signup");
+  if (!session) redirect("/login");
   if (!session.user.active) redirect("/pending");
 
   return children;

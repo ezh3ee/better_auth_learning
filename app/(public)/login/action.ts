@@ -2,6 +2,7 @@
 
 import { auth } from "@/app/lib/auth";
 import { log } from "console";
+import { redirect } from "next/navigation";
 import { z } from "zod";
 
 const SigninSchema = z.object({
@@ -51,6 +52,8 @@ export async function signinAction(
       success: false,
     };
   }
+
+  redirect("/");
 
   return {
     errors: {},

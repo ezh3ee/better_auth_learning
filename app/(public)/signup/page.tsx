@@ -1,5 +1,5 @@
+import { redirectToDashboard } from "@/app/utils/redirects";
 import { SignupForm } from "@/components/signup-form";
-import { redirectToDashboard } from "../../utils/redirects";
 
 export default async function Signup() {
   await redirectToDashboard();
